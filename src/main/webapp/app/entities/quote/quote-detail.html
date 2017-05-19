@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Quote</span> {{vm.quote.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>File</span></dt>
+        <dd>
+            <span>{{vm.quote.file}}</span>
+        </dd>
+        <dt><span>Review Q</span></dt>
+        <dd>
+            <a ui-sref="review-detail({id:vm.quote.reviewQ.id})">{{vm.quote.reviewQ.id}}</a>
+        </dd>
+        <dt><span>Provider Q</span></dt>
+        <dd>
+            <a ui-sref="provider-detail({id:vm.quote.providerQ.id})">{{vm.quote.providerQ.id}}</a>
+        </dd>
+        <dt><span>Project QU</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.quote.projectQU.id})">{{vm.quote.projectQU.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="quote-detail.edit({id:vm.quote.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

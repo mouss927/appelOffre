@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "providerActivityACTIVITY",
+            "otherEntityName": "providerActivity",
+            "otherEntityRelationshipName": "activityProvider"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "projectActivityACTIVITY",
+            "otherEntityName": "projectActivity",
+            "otherEntityRelationshipName": "activityProject"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170518080524",
+    "entityTableName": "activity",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

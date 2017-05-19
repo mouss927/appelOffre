@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span>Provider</span> {{vm.provider.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Last Name</span></dt>
+        <dd>
+            <span>{{vm.provider.lastName}}</span>
+        </dd>
+        <dt><span>First Name</span></dt>
+        <dd>
+            <span>{{vm.provider.firstName}}</span>
+        </dd>
+        <dt><span>Mail</span></dt>
+        <dd>
+            <span>{{vm.provider.mail}}</span>
+        </dd>
+        <dt><span>Password</span></dt>
+        <dd>
+            <span>{{vm.provider.password}}</span>
+        </dd>
+        <dt><span>Registration Date</span></dt>
+        <dd>
+            <span>{{vm.provider.registrationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Company Name</span></dt>
+        <dd>
+            <span>{{vm.provider.companyName}}</span>
+        </dd>
+        <dt><span>Siret</span></dt>
+        <dd>
+            <span>{{vm.provider.siret}}</span>
+        </dd>
+        <dt><span>Intervention Zone</span></dt>
+        <dd>
+            <span>{{vm.provider.interventionZone}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{vm.provider.user.id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="provider-detail.edit({id:vm.provider.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

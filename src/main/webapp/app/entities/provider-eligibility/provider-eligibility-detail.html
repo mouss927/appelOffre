@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span>Provider Eligibility</span> {{vm.providerEligibility.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Project PR</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.providerEligibility.projectPR.id})">{{vm.providerEligibility.projectPR.id}}</a>
+        </dd>
+        <dt><span>Provider EL</span></dt>
+        <dd>
+            <a ui-sref="provider-detail({id:vm.providerEligibility.providerEL.id})">{{vm.providerEligibility.providerEL.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="provider-eligibility-detail.edit({id:vm.providerEligibility.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

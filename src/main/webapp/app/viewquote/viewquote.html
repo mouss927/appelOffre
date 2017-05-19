@@ -1,0 +1,57 @@
+<div>
+    <h2>Quotes</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>File</span></th>
+                    <th><span>Review Q</span></th>
+                    <th><span>Provider Q</span></th>
+                    <th><span>Project QU</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="quote in vm.quotes track by quote.id">
+                    <td><a ui-sref="quote-detail({id:quote.id})">{{quote.id}}</a></td>
+                    <td>{{quote.file}}</td>
+                    <td>
+                        <a ui-sref="review-detail({id:quote.reviewQ.id})">{{quote.reviewQ.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="provider-detail({id:quote.providerQ.id})">{{quote.providerQ.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="project-detail({id:quote.projectQU.id})">{{quote.projectQU.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="quote-detail({id:quote.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="quote.delete({id:quote.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

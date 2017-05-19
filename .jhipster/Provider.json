@@ -1,0 +1,76 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "provider"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "quoteP",
+            "otherEntityName": "quote",
+            "otherEntityRelationshipName": "providerQ"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "providerEligibilityPRO",
+            "otherEntityName": "providerEligibility",
+            "otherEntityRelationshipName": "providerEL"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "providerativityPROVIDER",
+            "otherEntityName": "providerActivity",
+            "otherEntityRelationshipName": "providerProviderativity"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "registrationPROVIDER",
+            "otherEntityName": "registration",
+            "otherEntityRelationshipName": "providerRE"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "registrationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "companyName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "siret",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "interventionZone",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170518080520",
+    "entityTableName": "provider",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

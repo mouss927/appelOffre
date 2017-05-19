@@ -1,0 +1,86 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "customer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "projectC",
+            "otherEntityName": "project",
+            "otherEntityRelationshipName": "customerP"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "registrationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "postalCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "street",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "streetNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "complementStreet",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "postalCodeSite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "citySite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "streetSite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "streetNumberSite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "complementStreetSite",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170518080521",
+    "entityTableName": "customer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

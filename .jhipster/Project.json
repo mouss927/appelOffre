@@ -1,0 +1,59 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "quotePR",
+            "otherEntityName": "quote",
+            "otherEntityRelationshipName": "projectQU"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "providerEligibilityP",
+            "otherEntityName": "providerEligibility",
+            "otherEntityRelationshipName": "projectPR"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "projectactivityPROJECT",
+            "otherEntityName": "projectActivity",
+            "otherEntityRelationshipName": "projectACTIVITY"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "customerP",
+            "otherEntityName": "customer",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "projectpicPROJET",
+            "otherEntityName": "projectPic",
+            "otherEntityRelationshipName": "projectPIC"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "images",
+            "fieldType": "byte[]"
+        },
+        {
+            "fieldName": "dateSend",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20170518080522",
+    "entityTableName": "project",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

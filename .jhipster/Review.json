@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "quoteR",
+            "otherEntityName": "quote",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "reviewQ"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "text",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "rate",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170518080528",
+    "entityTableName": "review",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

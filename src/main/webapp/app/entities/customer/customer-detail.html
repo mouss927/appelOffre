@@ -1,0 +1,83 @@
+
+<div>
+    <h2><span>Customer</span> {{vm.customer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Last Name</span></dt>
+        <dd>
+            <span>{{vm.customer.lastName}}</span>
+        </dd>
+        <dt><span>First Name</span></dt>
+        <dd>
+            <span>{{vm.customer.firstName}}</span>
+        </dd>
+        <dt><span>Mail</span></dt>
+        <dd>
+            <span>{{vm.customer.mail}}</span>
+        </dd>
+        <dt><span>Password</span></dt>
+        <dd>
+            <span>{{vm.customer.password}}</span>
+        </dd>
+        <dt><span>Registration Date</span></dt>
+        <dd>
+            <span>{{vm.customer.registrationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Postal Code</span></dt>
+        <dd>
+            <span>{{vm.customer.postalCode}}</span>
+        </dd>
+        <dt><span>City</span></dt>
+        <dd>
+            <span>{{vm.customer.city}}</span>
+        </dd>
+        <dt><span>Street</span></dt>
+        <dd>
+            <span>{{vm.customer.street}}</span>
+        </dd>
+        <dt><span>Street Number</span></dt>
+        <dd>
+            <span>{{vm.customer.streetNumber}}</span>
+        </dd>
+        <dt><span>Complement Street</span></dt>
+        <dd>
+            <span>{{vm.customer.complementStreet}}</span>
+        </dd>
+        <dt><span>Postal Code Site</span></dt>
+        <dd>
+            <span>{{vm.customer.postalCodeSite}}</span>
+        </dd>
+        <dt><span>City Site</span></dt>
+        <dd>
+            <span>{{vm.customer.citySite}}</span>
+        </dd>
+        <dt><span>Street Site</span></dt>
+        <dd>
+            <span>{{vm.customer.streetSite}}</span>
+        </dd>
+        <dt><span>Street Number Site</span></dt>
+        <dd>
+            <span>{{vm.customer.streetNumberSite}}</span>
+        </dd>
+        <dt><span>Complement Street Site</span></dt>
+        <dd>
+            <span>{{vm.customer.complementStreetSite}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{vm.customer.user.id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="customer-detail.edit({id:vm.customer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

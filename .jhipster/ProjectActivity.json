@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "projectACTIVITY",
+            "otherEntityName": "project",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "activityProject",
+            "otherEntityName": "activity",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20170518080529",
+    "entityTableName": "project_activity",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

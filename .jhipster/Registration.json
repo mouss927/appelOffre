@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "providerRE",
+            "otherEntityName": "provider",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "subcriptionDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20170518080525",
+    "entityTableName": "registration",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

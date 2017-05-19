@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "projectPR",
+            "otherEntityName": "project",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "providerEL",
+            "otherEntityName": "provider",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20170518080526",
+    "entityTableName": "provider_eligibility",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

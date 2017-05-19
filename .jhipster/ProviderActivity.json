@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "providerProviderativity",
+            "otherEntityName": "provider",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "activityProvider",
+            "otherEntityName": "activity",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20170518080530",
+    "entityTableName": "provider_activity",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

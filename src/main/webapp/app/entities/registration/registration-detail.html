@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span>Registration</span> {{vm.registration.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Subcription Date</span></dt>
+        <dd>
+            <span>{{vm.registration.subcriptionDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Provider RE</span></dt>
+        <dd>
+            <a ui-sref="provider-detail({id:vm.registration.providerRE.id})">{{vm.registration.providerRE.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="registration-detail.edit({id:vm.registration.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

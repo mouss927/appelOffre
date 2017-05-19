@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "reviewQ",
+            "otherEntityName": "review",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "quoteR"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "providerQ",
+            "otherEntityName": "provider",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "projectQU",
+            "otherEntityName": "project",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "file",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170518080527",
+    "entityTableName": "quote",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}
