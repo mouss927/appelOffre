@@ -1,5 +1,6 @@
 package iut.fr.monappeloffre.repository;
 
+import iut.fr.monappeloffre.domain.Project;
 import iut.fr.monappeloffre.domain.ProviderActivity;
 
 import org.springframework.data.jpa.repository.*;

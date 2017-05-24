@@ -11,5 +11,9 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 public interface ProjectRepository extends JpaRepository<Project,Long> {
+	
+	//methode permettant de pouvoir recupere les projets par rapport au activité
+	public List<Project> findByProjectactivityPROJECTS_ActivityProjectIdIn(List<Long> activityList);
+
 
 }
