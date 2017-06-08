@@ -1,8 +1,11 @@
 package iut.fr.monappeloffre.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import iut.fr.monappeloffre.domain.Provider;
 
+import iut.fr.monappeloffre.domain.Activity;
+import iut.fr.monappeloffre.domain.Provider;
+import iut.fr.monappeloffre.domain.ProviderActivity;
+import iut.fr.monappeloffre.repository.ProviderActivityRepository;
 import iut.fr.monappeloffre.repository.ProviderRepository;
 import iut.fr.monappeloffre.repository.search.ProviderSearchRepository;
 import iut.fr.monappeloffre.web.rest.util.HeaderUtil;
@@ -33,12 +36,15 @@ public class ProviderResource {
     private static final String ENTITY_NAME = "provider";
         
     private final ProviderRepository providerRepository;
+    
+    private final ProviderActivityRepository providerActivityRepository;
 
     private final ProviderSearchRepository providerSearchRepository;
 
-    public ProviderResource(ProviderRepository providerRepository, ProviderSearchRepository providerSearchRepository) {
+    public ProviderResource(ProviderRepository providerRepository, ProviderSearchRepository providerSearchRepository, ProviderActivityRepository providerActivityRepository) {
         this.providerRepository = providerRepository;
         this.providerSearchRepository = providerSearchRepository;
+        this.providerActivityRepository = providerActivityRepository;
     }
 
     /**
@@ -48,15 +54,29 @@ public class ProviderResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new provider, or with status 400 (Bad Request) if the provider has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
+    
+    // AJouter parametres suppleeentaoires
     @PostMapping("/providers")
     @Timed
-    public ResponseEntity<Provider> createProvider(@RequestBody Provider provider) throws URISyntaxException {
+    public ResponseEntity<Provider> createProvider(@RequestBody Provider provider, @RequestParam(name = "activity", required=false) Long activity) throws URISyntaxException {
         log.debug("REST request to save Provider : {}", provider);
         if (provider.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new provider cannot already have an ID")).body(null);
         }
         Provider result = providerRepository.save(provider);
         providerSearchRepository.save(result);
+        
+        if(activity != null && result.getId() != null) {
+	        ProviderActivity providerActivity = new  ProviderActivity();
+	        providerActivity.setProviderProviderativity(result);
+	        Activity activityDomain = new Activity();
+	        activityDomain.setId(activity);
+	        providerActivity.setActivityProvider(activityDomain);
+	        
+	        providerActivityRepository.save(providerActivity);
+        }
+        
+        
         return ResponseEntity.created(new URI("/api/providers/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -73,10 +93,10 @@ public class ProviderResource {
      */
     @PutMapping("/providers")
     @Timed
-    public ResponseEntity<Provider> updateProvider(@RequestBody Provider provider) throws URISyntaxException {
+    public ResponseEntity<Provider> updateProvider(@RequestBody Provider provider, @RequestParam(name = "activity", required=false) Long activity) throws URISyntaxException {
         log.debug("REST request to update Provider : {}", provider);
         if (provider.getId() == null) {
-            return createProvider(provider);
+            return createProvider(provider, activity);
         }
         Provider result = providerRepository.save(provider);
         providerSearchRepository.save(result);

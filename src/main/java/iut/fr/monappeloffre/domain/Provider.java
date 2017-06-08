@@ -74,6 +74,9 @@ public class Provider implements Serializable {
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Registration> registrationPROVIDERS = new HashSet<>();
+    
+    @Transient
+    private Activity activity;
 
     public Long getId() {
         return id;
@@ -279,7 +282,15 @@ public class Provider implements Serializable {
         return registrationPROVIDERS;
     }
 
-    public Provider registrationPROVIDERS(Set<Registration> registrations) {
+    public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
+	}
+
+	public Provider registrationPROVIDERS(Set<Registration> registrations) {
         this.registrationPROVIDERS = registrations;
         return this;
     }

@@ -8,15 +8,15 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('provider.news', {
+        $stateProvider.state('provider.new', {
             parent: 'entity',
-            url: '/home_spe/new',
+            url: '/provider_spe/new',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/save-provider/customer-dialog.html',
+                    templateUrl: 'app/save-provider/provider-dialog.html',
                     controller: 'ProviderDialogSaveController',
                     controllerAs: 'vm',
                     backdrop: 'static',

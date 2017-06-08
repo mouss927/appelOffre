@@ -3,6 +3,7 @@ package iut.fr.monappeloffre.web.rest;
 import iut.fr.monappeloffre.MonAppelOffreApp;
 
 import iut.fr.monappeloffre.domain.Provider;
+import iut.fr.monappeloffre.repository.ProviderActivityRepository;
 import iut.fr.monappeloffre.repository.ProviderRepository;
 import iut.fr.monappeloffre.repository.search.ProviderSearchRepository;
 import iut.fr.monappeloffre.web.rest.errors.ExceptionTranslator;
@@ -69,6 +70,9 @@ public class ProviderResourceIntTest {
 
     @Autowired
     private ProviderSearchRepository providerSearchRepository;
+    
+    @Autowired
+    private ProviderActivityRepository providerActivityRepository;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -89,7 +93,7 @@ public class ProviderResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        ProviderResource providerResource = new ProviderResource(providerRepository, providerSearchRepository);
+        ProviderResource providerResource = new ProviderResource(providerRepository, providerSearchRepository, providerActivityRepository);
         this.restProviderMockMvc = MockMvcBuilders.standaloneSetup(providerResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

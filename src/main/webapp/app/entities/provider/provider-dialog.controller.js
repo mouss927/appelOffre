@@ -5,9 +5,9 @@
         .module('monAppelOffreApp')
         .controller('ProviderDialogController', ProviderDialogController);
 
-    ProviderDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Provider', 'User', 'Quote', 'ProviderEligibility', 'ProviderActivity', 'Registration'];
+    ProviderDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Provider', 'User', 'Quote', 'ProviderEligibility', 'ProviderActivity', 'Registration', 'Activity'];
 
-    function ProviderDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Provider, User, Quote, ProviderEligibility, ProviderActivity, Registration) {
+    function ProviderDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Provider, User, Quote, ProviderEligibility, ProviderActivity, Registration, Activity) {
         var vm = this;
 
         vm.provider = entity;
@@ -16,6 +16,7 @@
         vm.openCalendar = openCalendar;
         vm.save = save;
         vm.users = User.query();
+        vm.activities = Activity.query();
         vm.quotes = Quote.query();
         vm.providereligibilities = ProviderEligibility.query();
         vm.provideractivities = ProviderActivity.query();
@@ -31,6 +32,7 @@
 
         function save () {
             vm.isSaving = true;
+            console.log(vm.provider)
             if (vm.provider.id !== null) {
                 Provider.update(vm.provider, onSaveSuccess, onSaveError);
             } else {
