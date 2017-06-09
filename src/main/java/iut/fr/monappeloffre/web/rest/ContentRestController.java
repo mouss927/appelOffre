@@ -1,13 +1,27 @@
+package iut.fr.monappeloffre.web.rest;
+import java.time.LocalDate;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 
- /*@RestController
+import	iut.fr.monappeloffre.domain.Project;
+import  iut.fr.monappeloffre.repository.ProjectRepository;
+@RestController
 @RequestMapping(path="/api/content")
 public class ContentRestController {
 
 	private static Logger log = LoggerFactory.getLogger(ContentRestController.class);
 	
 	@Autowired
-	PhotoRepository photoRepository;
+	ProjectRepository projectRepository;
 	
 	
 
@@ -27,16 +41,12 @@ public byte[] data;
 			@RequestParam("file") MultipartFile file) {
 		//log.info("uploading file");
 	    //@RequestPart("file") MultipartFile file) {
-		Photo photo = new Photo();
-		photo.setDateCreate(LocalDate.now());
-		photo.setTitle(file.getName());
-		photo.setUri("fee");
-		photo.setFormat("fefe");
-		photo.setSize((int) file.getSize());
+		Project p = new Project();
+	
 		log.info("uploading file '" + file.getOriginalFilename() + "' ");
 		try {
-			photo.setImage(file.getBytes());
-			photoRepository.save(photo);
+			p.setImages(file.getBytes());
+			projectRepository.save(p);
 		} catch (Exception ex) {
 			log.error("Failed to upload", ex);
 		}
@@ -45,4 +55,4 @@ public byte[] data;
 	
 	
 	
-}*/
+}

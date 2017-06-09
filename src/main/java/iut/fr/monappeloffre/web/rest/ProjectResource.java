@@ -124,7 +124,7 @@ public class ProjectResource {
 		List<Project> projects = projectRepository.findAll();
 		return projects;
 	}
-
+// return tous les projets
 	/**
 	 * GET /projects/:id : get the "id" project.
 	 *

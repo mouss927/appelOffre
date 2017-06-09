@@ -1,19 +1,47 @@
-<div>
-
-
-
+  <div>
 <div ng-repeat="it in vm.eligibleProjects">
-
+<b><FONT size="2"> 
 	<div style="">
-		<span>{{it.title}}</span>
-		<span>{{it.customerP.user.email}}</span>
-	</div>
-	<br />
+		Titre:<span>{{it.title}}</span><br>
+		Description du projet:<span>{{it.description}}</span>
+	
+	<br/>
+	information client :
 	<div>
-		{{it.description}}
+	nom client :<span>{{it.customerP.lastName}}</span>
+     prenom client :<span>{{it.customerP.firstName}}</span>
+     nom client :<span>{{it.customerP.mail}}</span>                
+     code postal :<span>{{it.customerP.postalCode}}</span>
+        ville:<span>{{it.customerP.city}}</span>
+         rue:<span>{{it.customerP.street}}</span>
+           numero rue :<span>{{it.customerP.streetNumber}}</span>
+          complement adresse :<span>{{it.customerP.complementStreet}}</span>
+          <img ng-src="data:image/JPEG;base64,{{it.images}}"style="max-height: 200px;" alt="photo image">
+           </div>         
 	</div>
-
+<INPUT TYPE="submit" ng-click="" NAME="Submit" VALUE="Deposer un devis">
+<br>
+</b>
+</div>
 </div>
 
 
-</div>
+
+
+<!--		
+			<div class="row">
+	    		<div ng-repeat="it in vm.eligibleProjects">
+    				<div class="col-md-4">
+    					 <div class="well">
+				        	<b><FONT size="5"> {{it.title}}</FONT></b>
+				             <div class="well"> <img class="picture" height="300" width="250" ng-src="" alt="Photo"/> </div>
+				    			<p>{{it.description}}</p>
+				             	<p>{{{it.customerP.user.email}}
+				           </div>
+	 			    			
+				    			<INPUT TYPE="submit" ng-click="" NAME="SubmitComment" VALUE="Deposer un devis">
+						 </div> 
+					</div>
+			 	</div>
+			
+-->	
