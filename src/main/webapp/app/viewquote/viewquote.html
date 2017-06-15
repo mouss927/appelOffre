@@ -24,7 +24,7 @@
             <tbody>
                 <tr ng-repeat="quote in vm.quotes track by quote.id">
                     <td><a ui-sref="quote-detail({id:quote.id})">{{quote.id}}</a></td>
-                    <td>{{quote.file}}</td>
+                    <td><a href="/api/downloadFile?id={{quote.id}}">{{quote.file}}</a></td>
                     <td>
                         <a ui-sref="review-detail({id:quote.reviewQ.id})">{{quote.reviewQ.id}}</a>
                     </td>

@@ -1,40 +1,36 @@
 
 <div ng-repeat="it in vm.eligibleProjects">
-<div class="row" style="border : solid 1px grey">
+	<div class="row" style="border: solid 1px grey">
 
 
 
-<div>
-	<div>
-		Titre:<span>{{it.title}}</span><br>
-		Description du projet:<span>{{it.description}}</span>
-	</div>
-	<br/>
-	
-	<div class="col-sm-3">
-          <img ng-src="data:image/JPEG;base64,{{it.images}}"style="max-height: 200px;" alt="photo image">
-    </div>
-    <div class="col-sm-offset-1 col-sm-6">
-    Information client :
-    <br>
-	nom client :<span>{{it.customerP.lastName}}</span>
-     prenom client :<span>{{it.customerP.firstName}}</span>
-     nom client :<span>{{it.customerP.mail}}</span>                
-     code postal :<span>{{it.customerP.postalCode}}</span>
-        ville:<span>{{it.customerP.city}}</span>
-         rue:<span>{{it.customerP.street}}</span>
-           numero rue :<span>{{it.customerP.streetNumber}}</span>
-          complement adresse :<span>{{it.customerP.complementStreet}}</span>
-          <br>
-          <INPUT TYPE="file" accept="" ng-click="" NAME="Submit" VALUE="Deposer un devis">
+		<div>
+			<div>
+				Titre:<span>{{it.title}}</span><br> Description du projet:<span>{{it.description}}</span>
+			</div>
+			<br />
+
+			<div class="col-sm-3">
+				<img ng-src="data:image/JPEG;base64,{{it.images}}"
+					style="max-height: 200px;" alt="photo image">
+			</div>
+			<form method="POST" enctype="multipart/form-data">
+				<div class="col-sm-offset-1 col-sm-6">
+					Information client : <br> nom client :<span>{{it.customerP.lastName}}</span>
+					prenom client :<span>{{it.customerP.firstName}}</span> nom client :<span>{{it.customerP.mail}}</span>
+					code postal :<span>{{it.customerP.postalCode}}</span> ville:<span>{{it.customerP.city}}</span>
+					rue:<span>{{it.customerP.street}}</span> numero rue :<span>{{it.customerP.streetNumber}}</span>
+					complement adresse :<span>{{it.customerP.complementStreet}}</span>
+					<br> <INPUT name="file" TYPE="file" accept="" ng-click="" NAME="Submit" onchange="angular.element(this).controller().uploadFiles(this.files)"
+						VALUE="Deposer un devis"> <br> 
+				</div>
+			</form>
+			<br>
+		</div>
 		<br>
-    </div>
-    <br>
-</div>
-<br>
 
 
-</div>
+	</div>
 </div>
 
 
@@ -56,4 +52,4 @@
 					</div>
 			 	</div>
 			
--->	
+-->

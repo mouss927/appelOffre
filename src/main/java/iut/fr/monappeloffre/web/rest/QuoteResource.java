@@ -1,25 +1,41 @@
 package iut.fr.monappeloffre.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import iut.fr.monappeloffre.domain.Quote;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
-import iut.fr.monappeloffre.repository.QuoteRepository;
-import iut.fr.monappeloffre.repository.search.QuoteSearchRepository;
-import iut.fr.monappeloffre.web.rest.util.HeaderUtil;
-import io.github.jhipster.web.util.ResponseUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
+import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.codahale.metrics.annotation.Timed;
+
+import io.github.jhipster.web.util.ResponseUtil;
+import iut.fr.monappeloffre.domain.Quote;
+import iut.fr.monappeloffre.repository.QuoteRepository;
+import iut.fr.monappeloffre.repository.search.QuoteSearchRepository;
+import iut.fr.monappeloffre.web.rest.util.HeaderUtil;
 
 /**
  * REST controller for managing Quote.
@@ -31,6 +47,8 @@ public class QuoteResource {
     private final Logger log = LoggerFactory.getLogger(QuoteResource.class);
 
     private static final String ENTITY_NAME = "quote";
+    
+    public static final String DIRECTORY_NAME = "C:\\dev\\pdf";
         
     private final QuoteRepository quoteRepository;
 
@@ -39,6 +57,58 @@ public class QuoteResource {
     public QuoteResource(QuoteRepository quoteRepository, QuoteSearchRepository quoteSearchRepository) {
         this.quoteRepository = quoteRepository;
         this.quoteSearchRepository = quoteSearchRepository;
+    }
+    
+    /**
+     * POST  /quotes : Create a new quote.
+     *
+     * @param quote the quote to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new quote, or with status 400 (Bad Request) if the quote has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    //enregistrer le nouveau devis
+    @RequestMapping("/saveFile")
+    public void saveFile(@RequestParam("file") MultipartFile file)  {
+        log.debug("REST request to saveFile Quote");
+        Quote quote = new Quote();
+        quote.setFile(file.getOriginalFilename());
+        quote.setProjectQU(null);
+        quote.setProviderQ(null);
+        quote.setReviewQ(null);
+        Quote result = quoteRepository.save(quote);
+        if(result.getId() != null) {
+        	try {
+        		File fichier = new File(DIRECTORY_NAME + "\\" + file.getOriginalFilename());
+        		file.transferTo(fichier);
+			} catch (Exception e) {
+				log.error(e.getMessage(), e);
+			}
+        }
+        quoteSearchRepository.save(result);
+    }
+    
+    
+    ///ma methode pour telecharger
+    @RequestMapping("/downloadFile")
+    public void downloadFile(HttpServletRequest req, HttpServletResponse response, @RequestParam("id") Long id) throws IOException {
+    	
+    	response.setContentType("text/plain");
+    	 
+        if (id != null) {
+
+        	Quote quote = quoteRepository.findOne(id);
+               String fileName = quote.getFile();
+               // Ne jamais oublier les \"" pour autoriser les espaces dans le nom
+               // de fichier à télécharger
+               response.setHeader("Content-disposition", "attachment; filename=\"" + fileName + "\"");
+               
+               response.getOutputStream().write( Files.readAllBytes(new File(DIRECTORY_NAME + "\\" + fileName).toPath()));
+
+               response.getOutputStream().close();
+        } else {
+               response.getWriter().write("");
+               response.getWriter().close();
+        }
     }
 
     /**
