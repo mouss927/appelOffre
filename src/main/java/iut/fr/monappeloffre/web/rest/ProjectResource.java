@@ -178,7 +178,7 @@ public class ProjectResource {
 	@Transactional
 	public List<Project> getEligibleProjects() {
 		log.debug("REST request to get eligible Projects");
-		Provider curr = providerRepository.findOne((long) 33);
+		Provider curr = providerRepository.findOne((long) 1);
 		//instancier une liste
 		List<Long> activityIds = new ArrayList<>();
 		// parcourir les providerActivity 
