@@ -1,4 +1,4 @@
-<form name="editForm" role="form" novalidate method="POST" enctype="multipart/form-data" ng-submit="vm.uploadFiles()">
+<form name="editForm" role="form" novalidate method="POST" enctype="multipart/form-data" ng-submit="vm.save()">
 	<div class="form-group">
 		<div class="form-group">
             <label class="control-label" for="field_lastName">Last Name</label>
@@ -27,7 +27,7 @@
 	<div class="form-group">
 		<label for="field_activity">Activity</label> <select
 			class="form-control" id="field_activity" name="activity"
-			ng-model="vm.project.activity"
+			ng-model="vm.provider.activity"
 			ng-options="activity.id as activity.name for activity in vm.activities">
 			<option value=""></option>
 		</select>

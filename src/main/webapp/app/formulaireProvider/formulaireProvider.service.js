@@ -22,7 +22,12 @@
             },
             'save': {
                 method: 'POST',
-                headers: {'Content-Type': 'multipart/form-data'}
+                //headers: {'Content-Type': 'multipart/form-data'},
+                transformRequest: function (data) {
+	                var copy = angular.copy(data);
+	                //copy.registrationDate = DateUtils.convertLocalDateToServer(copy.registrationDate);
+	                return angular.toJson(copy);
+                }
             
             }
         });

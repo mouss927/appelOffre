@@ -24,6 +24,9 @@ import iut.fr.monappeloffre.repository.ProjectRepository;
 import iut.fr.monappeloffre.web.rest.dto.ProjectActivityDTO;
 import iut.fr.monappeloffre.web.rest.util.HeaderUtil;
 
+
+
+//project actvity 
 @RestController
 @RequestMapping("/api")
 public class FormulaireResource {

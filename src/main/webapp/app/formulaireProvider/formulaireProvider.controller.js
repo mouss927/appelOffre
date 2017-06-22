@@ -8,16 +8,16 @@
 	formulaireProviderController.$inject = ['$timeout', '$scope', 
 		'$stateParams',  '$q', 'Provider', 'User', 'Quote', 
 		'ProviderEligibility', 'ProviderActivity', 'Registration', 
-		'Activity','$http'];
+		'Activity','$http','entity', 'formulaireProvider'];
 
 	function formulaireProviderController ($timeout, $scope, $stateParams, 
 			$q, Provider, User, Quote, ProviderEligibility,
 			ProviderActivity, Registration, 
-			Activity,$http) {
+			Activity,$http,entity, formulaireProvider) {
 		var vm = this;
 
 		vm.activities = [];
-		vm.provider = Provider.query();
+		vm.provider = entity;
 		vm.clear = clear;
 		vm.datePickerOpenStatus = {};
 		vm.openCalendar = openCalendar;
@@ -28,7 +28,7 @@
 		vm.providereligibilities = ProviderEligibility.query();
 		vm.provideractivities = ProviderActivity.query();
 		vm.registrations = Registration.query();
-
+		vm.save = save;
 		loadAll();
 
 		$timeout(function (){
@@ -45,11 +45,11 @@
 		function clear () {
 
 		}
-
-		function save () {
+		
+		 function save () {
 			vm.isSaving = true;
-
-			Provider.save(vm.provider, onSaveSuccess, onSaveError);
+			console.log(vm.provider);
+			formulaireProvider.save(vm.provider, onSaveSuccess, onSaveError);
 
 		}
 
