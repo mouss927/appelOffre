@@ -51,21 +51,19 @@
 		});
 
 		function clear() {
-			// $uibModalInstance.dismiss('cancel');
+			
 		}
 
 		function save() {
 			vm.isSaving = true;
-			// if (vm.project.id !== null) {
-			// Formulaire.update(vm.project, onSaveSuccess, onSaveError);
-			// } else {
+			
 			Formulaire.save(vm.project, {}, onSaveSuccess, onSaveError);
-			// }
+			
 		}
 
 		function onSaveSuccess(result) {
 			$scope.$emit('monAppelOffreApp:projectUpdate', result);
-			// $uibModalInstance.close(result);
+			
 			vm.isSaving = false;
 		}
 
@@ -101,27 +99,17 @@
         	else{
         	console.log("uploading..");
        	 	var fd = new FormData();
-       	 	//Take the first selected file
+       	 	
        	 	fd.append("images",vm.files[0]);
        	 	fd.append("title", vm.project.title);
        	 	fd.append("description", vm.project.description);
        	 	fd.append("activity", vm.project.activity);
-       	    //$http.get('http://localhost:8080/#/depot')
+       	    
        	 	console.log(vm.files.length);
-       	       
-       	        /*var reqImageData = {
-       			fileName: files[0].fileName
-       			};*/
-       	 	
-
-   	        /*var reqImageData = {
-   			file: files[0]
-   			};*/
+       	 
 
    	        
-    	    var req = $http.post('/api/formulaire',fd, { /*reqImageData*/
-    	        	//withCredentials: true,
-    	    	
+    	    var req = $http.post('/api/formulaire',fd, { 
     	        transformRequest: angular.identity,
     	        headers: {
     	        	'Content-Type': undefined,
@@ -135,13 +123,9 @@
     	    	
 
     	    	console.log("data test : " + data);
-    	    //	console.log("status test : " + status);
+    	  
     	    	console.log("fd test : " + fd);
-    	    	//console.log("fd get byte test : " + fd.getByte());
     	    	
-    	    	//files[0] = fd;
-    	    	
-    	    	//console.log(files);
     	    	
     	    })
     	    .error(function(err) {

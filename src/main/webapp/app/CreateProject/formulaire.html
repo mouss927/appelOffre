@@ -8,28 +8,7 @@
 		<label class="control-label" for="field_description">Description</label>
 		<textarea class="form-control" name="description"
 			id="field_description" ng-model="vm.project.description"></textarea>
-	</div>
-	<!--div class="form-group" ngf-drop
-		ngf-change="vm.setImages($file, vm.project)">
-		<label class="control-label" for="field_images">Images</label>
-		<div>
-			<div ng-if="vm.project.images" class="help-block clearfix">
-				<span class="pull-left">{{vm.project.imagesContentType}},
-					{{vm.byteSize(vm.project.images)}}</span>
-				<button type="button"
-					ng-click="vm.project.images=null;vm.project.imagesContentType=null;"
-					class="btn btn-default btn-xs pull-right">
-					<span class="glyphicon glyphicon-remove"></span>
-				</button>
-			</div>
-			<button type="button" ngf-select class="btn btn-default btn-block"
-				ngf-change="vm.setImages($file, vm.project)">Add blob</button>
-		</div>
-		<input type="hidden" class="form-control" name="images"
-			id="field_images" ng-model="vm.project.images" />
-		<input type="hidden" class="form-control" name="imagesContentType"
-			id="field_imagesContentType" ng-model="vm.project.imagesContentType" />
-	</div-->
+	</div>	
 	<div class="form-group">
 		<label for="field_activity">Images</label> <input type="file" name="images" class='btn btn-default' onchange="angular.element(this).controller().setFiles(this.files)" />
 	</div>

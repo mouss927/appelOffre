@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('monAppelOffreApp')
-        .factory('Formulaire', Formulaire);
+        .factory('formulaireProvider', formulaireProvider);
 
-    Formulaire.$inject = ['$resource', 'DateUtils'];
+    formulaireProvider.$inject = ['$resource', 'DateUtils'];
 
-    function Formulaire ($resource, DateUtils) {
-        var resourceUrl =  'api/formulaire/:id';
+    function formulaireProvider ($resource, DateUtils) {
+        var resourceUrl =  'api/formulaireProvider/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},

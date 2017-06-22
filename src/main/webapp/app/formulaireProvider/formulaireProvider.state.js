@@ -4,29 +4,30 @@
     angular
         .module('monAppelOffreApp')
         .config(stateConfig);
-
+    
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('activity', {
-            parent: 'entity',
-            url: '/activity',
+        .state('formulairePrvider', {
+            parent: 'app',
+            url: '/formulaireProvider/new',
             data: {
-                authorities: ['ROLE_USER'],
-                pageTitle: 'Activities'
+                authorities: ['ROLE_USER']
             },
+            
             views: {
                 'content@': {
-                    templateUrl: 'app/save-provider/provder-dialog.html',
-                    controller: 'ActivityController',
-                    controllerAs: 'vm'
+                	templateUrl: 'app/formulaireProvider/formulaireProvider.html',
+                    controller: 'formulaireProviderController',
+                    controllerAs: 'vm',
                 }
             },
             resolve: {
+             
             }
-        
-        });
+      
+        })
     }
 
 })();
