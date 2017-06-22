@@ -21,15 +21,15 @@ import iut.fr.monappeloffre.web.rest.util.HeaderUtil;
 
 @RestController
 @RequestMapping("/api")
-public class FormulaireProviderResource {
+public class ProviderActivityFormResource {
 	
-	private static final Logger log = LoggerFactory.getLogger(FormulaireProviderResource.class);
+	private static final Logger log = LoggerFactory.getLogger(ProviderActivityFormResource.class);
 
 	private static final String ENTITY_NAME = "provider";
 	
 	private final ProviderService providerService;
 	
-	public FormulaireProviderResource(ProviderService providerService) {
+	public ProviderActivityFormResource(ProviderService providerService) {
 		this.providerService = providerService;
 	}
 

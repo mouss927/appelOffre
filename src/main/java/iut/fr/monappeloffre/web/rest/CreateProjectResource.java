@@ -29,16 +29,16 @@ import iut.fr.monappeloffre.web.rest.util.HeaderUtil;
 //project actvity 
 @RestController
 @RequestMapping("/api")
-public class FormulaireResource {
+public class CreateProjectResource {
 
-	private final Logger log = LoggerFactory.getLogger(FormulaireResource.class);
+	private final Logger log = LoggerFactory.getLogger(CreateProjectResource.class);
 
 	private static final String ENTITY_NAME = "project";
 
 	private final ProjectRepository projectRepository;
 	private final ProjectActivityRepository projectActivityRepository;
 
-	public FormulaireResource(ProjectRepository projectRepository,
+	public CreateProjectResource(ProjectRepository projectRepository,
 			ProjectActivityRepository projectActivityRepository) {
 
 		this.projectRepository = projectRepository;
